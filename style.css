@@ -31,6 +31,17 @@ body {
   width: 100%;
   height: 100%;
   transition: top 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Add mole emoji */
+.mole::before {
+  content: "🐹";
+  font-size: 32px;
 }
 
 .hole.up .mole {
@@ -48,7 +59,95 @@ button {
 }
 
 .score,
-.timer {
+.timer,
+.mole-count {
   font-size: 24px;
   margin: 10px;
+}
+
+/* Game stats container */
+.game-stats {
+  display: flex;
+  gap: 30px;
+  margin: 15px 0;
+}
+
+/* Timer styling */
+.timer {
+  color: #d63031;
+  font-weight: bold;
+}
+
+/* Game over screen */
+.game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
+
+.game-over h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.game-over p {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Whacked animation */
+.hole.whacked {
+  animation: whack-flash 0.2s;
+}
+
+@keyframes whack-flash {
+  0% {
+    background: #3a4e48;
+  }
+  50% {
+    background: #00b894;
+  }
+  100% {
+    background: #3a4e48;
+  }
+}
+
+/* Hole numbers styling */
+.hole-number {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ddd;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Instructions styling */
+.instructions {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+  max-width: 400px;
+}
+
+.instructions p {
+  margin: 8px 0;
 }
